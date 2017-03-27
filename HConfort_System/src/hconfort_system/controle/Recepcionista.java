@@ -20,5 +20,33 @@ public class Recepcionista {
     String login;
     String senha;
     
+    void EfetuarLogin(){
+        
+    }
+     
+    void CadastrarHospede(){
+        
+    }
     
+   void ConsultarHospede(){
+       
+   }  
+    
+    void ConsultarQuarto(){
+        
+    }
+    
+    void RealizarReserva(){
+        
+    }
+    
+    void FecharEstadia(){
+        
+    }
+    
+    void CalcularGastosDeEstadia(){
+        
+    }
 }
+
+

@@ -15,4 +15,44 @@ public class Gerente {
     String login;
     String senha;
     
+    
+    void EfetuarLogin(){
+        
+    }
+    void CadastrarRecepcionista(){
+        
+        
+    }
+    void CadastrarServicos(){
+        
+    }
+    void CadastrarQuartos(){
+        
+    }
+    
+    void ConsultarRecepcionista(){
+        
+    }
+    void ExcluirAlterarReserva(){
+        
+        
+    }
+    void CadastarQuartosPromocoes(){
+        
+    }
+    
+    void GerarRelatorios(){
+        
+    }
+    
+    void ListarQuartosUsados(){
+        
+    }
+    void ExcluirHospede(){
+        
+        
+    }
+    void AlterarHospede(){
+        
+    }
 }

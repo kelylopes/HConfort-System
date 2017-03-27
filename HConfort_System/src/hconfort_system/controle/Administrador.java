@@ -9,4 +9,16 @@ public class Administrador {
     String login;
     String senha;
     
+    void EfetuarLogin(){
+        
+    }
+    
+    void CadastrarGerente(){
+        
+        
+    }
+    
+    void GerarRElatorios(){
+        
+    }
 }

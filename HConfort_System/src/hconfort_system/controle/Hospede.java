@@ -18,4 +18,25 @@ public class Hospede {
     String senha;
     
     
+    void EfetuarLogin(){
+        
+    }
+    
+    void SolicitarSeviço(){
+         
+    }
+    
+    void ConsultarPromocoesEReservas(){
+        
+    }
+    void ListarPromocoes(){
+        
+        
+    }
+    
+    void AlugarSalaoDefestas(){
+        
+    }
+    
+    
 }

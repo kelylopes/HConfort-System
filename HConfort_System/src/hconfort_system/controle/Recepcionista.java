@@ -20,19 +20,19 @@ public class Recepcionista {
     String login;
     String senha;
     
-    void EfetuarLogin(){
+    void GetEfetuarLogin(){
         
     }
      
-    void CadastrarHospede(){
+    void SetCadastrarHospede(){
         
     }
     
-   void ConsultarHospede(){
+   void GetConsultarHospede(){
        
    }  
     
-    void ConsultarQuarto(){
+    void GetConsultarQuarto(){
         
     }
     
@@ -47,6 +47,8 @@ public class Recepcionista {
     void CalcularGastosDeEstadia(){
         
     }
+    
+    
 }
 
 

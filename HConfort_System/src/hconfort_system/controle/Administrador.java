@@ -18,7 +18,7 @@ public class Administrador {
         
     }
     
-    void GerarRElatorios(){
+    void GerarRelatorios(){
         
     }
 }

@@ -20,19 +20,19 @@ public class Recepcionista {
     String login;
     String senha;
     
-    void GetEfetuarLogin(){
+    void EfetuarLogin(){
         
     }
      
-    void SetCadastrarHospede(){
+    void CadastrarHospede(){
         
     }
     
-   void GetConsultarHospede(){
+   void ConsultarHospede(){
        
    }  
     
-    void GetConsultarQuarto(){
+    void ConsultarQuarto(){
         
     }
     

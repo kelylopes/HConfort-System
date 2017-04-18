@@ -8,10 +8,7 @@ package DAO;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author CLAUDIO
- */
+
 public class Conexao1 {
     public static Connection AbrirConexao(){
         Connection con = null;

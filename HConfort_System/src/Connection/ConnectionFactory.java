@@ -3,6 +3,7 @@ package Connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,11 @@ public class ConnectionFactory {
         try {
             Class.forName(DRIVER);
             
-            return DriverManager.getConnection(URL, USER, PASS);
+            try {
+                return DriverManager.getConnection(URL, USER, PASS);
+            } catch (SQLException ex) {
+                Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
         }
@@ -29,9 +34,11 @@ public class ConnectionFactory {
            throw new RuntimeException("Erro na conexão", ex);
            
         }
+        return null;
         
         
     }
+
     
     /**
      *
@@ -44,9 +51,9 @@ public class ConnectionFactory {
             try {
                 con.close();
             } catch (SQLException ex) {
-                Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println(ex.getLocalizedMessage());
             }
-            
+          
         }
         
     }

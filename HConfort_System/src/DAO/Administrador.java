@@ -40,7 +40,7 @@ public class Administrador extends ExecutarSql{
     }
     
     
-    public List<Administrador> Listar_Funcionario(){
+    public List<Administrador> Listar_Administrador(){
         String sql = "SELECT codigo,nome,login,senha FROM ";
         List<Administrador> lista = new ArrayList<Administrador>();
         
@@ -50,9 +50,8 @@ public class Administrador extends ExecutarSql{
             
             if(rs != null){
                 while(rs.next()){
-                    Funcionario f = new Funcionario();
-                    f.setCod(rs.getInt(1));
-                    f.setNome(rs.getString(2));
+                    Administrador f = new Administrador(null);
+                   
                     f.setLogin(rs.getString(3));
                     f.setSenha(rs.getString(4));
                     
@@ -66,6 +65,14 @@ public class Administrador extends ExecutarSql{
             return null;
         }
         
+    }
+
+    private void setLogin(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+
+    private void setSenha(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
     
     

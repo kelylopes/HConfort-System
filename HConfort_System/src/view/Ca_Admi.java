@@ -5,10 +5,6 @@
  */
 package view;
 
-/**
- *
- * @author Ana Kely Lopes
- */
 public class Ca_Admi extends javax.swing.JFrame {
 
     /**

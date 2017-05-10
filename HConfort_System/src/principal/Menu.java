@@ -14,12 +14,6 @@ import view.Con_Re;
 import view.Exc_Alt_Res;
 import view.Exc_Alte_Dados_Hós;
 import view.Excluir_Hós;
-import view.Rea_Res;
-import view.Rea_Reserva;
-import view.So_Ser;
-import view.Te_Hóp;
-import view.Te_Recp;
-import view.TelaInicial;
 
         
 
@@ -30,6 +24,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         setTitle("Cadastro de Funcionário");
+        setTitle("Cadastro de Administrador");
         
     }
 
@@ -42,6 +37,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jcadastro = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -53,6 +49,20 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
 
         jcadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img/icons 1/computer_add.png"))); // NOI18N
         jcadastro.setText("Cadastrar");
@@ -116,11 +126,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -128,33 +138,25 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-                // TODO add your handling code here:
-        new Ca_Admi().setVisible(true);
-        new Ca_Hós().setVisible(true);
-        new Ca_gere().setVisible(true);
-        new Cad_Quartos().setVisible(true);
-        new Cad_Recp().setVisible(true);
-        new Cad_serviço().setVisible(true);
+               
+      /**
+       * cadastro
+       */
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        new Con_Re().setVisible(true);
-        new Con_Hós().setVisible(true);
-         new Con_Qur().setVisible(true);
+       //consulta
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        new Alte_Hó().setVisible(true);
+       //alterar 
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        new Excluir_Hós().setVisible(true);
-         new Exc_Alt_Res().setVisible(true);
-         new Exc_Alte_Dados_Hós().setVisible(true);
+        //excluir
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
    
@@ -187,6 +189,8 @@ public class Menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
+                 new Ca_Hós().setVisible(true);
+                  new Ca_Hós().setVisible(true);
             }
         });
     }
@@ -200,6 +204,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu jcadastro;
     // End of variables declaration//GEN-END:variables
 }

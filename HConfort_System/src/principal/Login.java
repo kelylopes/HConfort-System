@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package principal;
 
+import view.CadastroGeral;
 import Connection.ConnectionFactory;
 import javax.swing.JOptionPane;
 import DAO.ExecutarSql;

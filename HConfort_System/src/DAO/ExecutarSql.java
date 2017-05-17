@@ -11,7 +11,7 @@ import java.sql.Connection;
  *
  * @author HConfort-System
  */
-public class ExecutarSql {
+public final class ExecutarSql {
     
     private Connection con;
     

@@ -1,10 +1,11 @@
 
 package DAO;
 
-import hconfort_system.modelo.Administrador;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -18,27 +19,27 @@ public class Administrador extends ExecutarSql{
     }
 
     
-    public String Inserir_Administrador(Administrador a){
-        String sql = "INSERT INTO funcionario VALUES (0,?,?,?)";
+    public String   Inserir_Administrador (Administrador admin){
+        String sql = "INSERT INTO funcionario VALUES (?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
             
-            ps.setString(1, a.getLogin());
-            ps.setString(2, a.getSenha());
+            ps.setString(1, admin.getLogin());
+            ps.setString(2, admin.getSenha());
             
             if(ps.executeUpdate() > 0){
                 return "Administrador Cadastrado com Sucesso!";
             }else{
                 return "Erro ao Cadastrar Administrador!";
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             return e.getMessage();
         }
     }
     
     public List<Administrador> Listar_Administrador(){
-        String sql = "SELECT login,senha FROM ";
+        String sql = "SELECT  FROM administrador";
         List<Administrador> lista = new ArrayList<Administrador>();
         
         try {
@@ -47,12 +48,12 @@ public class Administrador extends ExecutarSql{
             
             if(rs != null){
                 while(rs.next()){
-                    Administrador a = new Administrador(a);
+                    Administrador admin = new Administrador(admin);
                     
-                    a.setLogin(rs.getString(3));
-                    a.setSenha(rs.getString(4));
+                    admin.setLogin(rs.getString(3));
+                    admin.setSenha(rs.getString(4));
                     
-                    lista.add(a);
+                    lista.add(admin);
                 }
             return lista;
             }else{
@@ -100,12 +101,12 @@ public class Administrador extends ExecutarSql{
             
             if(rs != null){
                 while(rs.next()){
-                    Administrador a = new Administrador();
+                    Administrador admin = new Administrador();
                     
                     a.setLogin(rs.getString(3));
                     a.setSenha(rs.getString(4));
                     
-                    lista.add(a);
+                    lista.add(admin);
                 }
             return lista;
             }else{
@@ -221,6 +222,14 @@ public class Administrador extends ExecutarSql{
     }
 
     private int getCod() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String getLogin() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String getSenha() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

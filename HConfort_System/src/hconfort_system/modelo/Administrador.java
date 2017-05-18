@@ -1,8 +1,6 @@
 
 package hconfort_system.modelo;
 
-import hconfort_system.*;
-
 
 public class Administrador {
     private String login;

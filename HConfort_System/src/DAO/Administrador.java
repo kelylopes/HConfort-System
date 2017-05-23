@@ -39,8 +39,63 @@ public class Administrador extends ExecutarSql{
     }
     
     public List<Administrador> Listar_Administrador(){
-        String sql = "SELECT  FROM administrador";
-        List<Administrador> lista = new ArrayList<Administrador>();
+        String sql = "SELECT  FROM Administrador";
+        List<Administrador> lista = new ArrayList<>();
+        
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs != null){
+                while(rs.next()){
+                    Administrador admin = null;
+                    admin = new Administrador((Connection) admin);
+                    
+                    admin.setLogin(rs.getString(3));
+                    admin.setSenha(rs.getString(4));
+                    
+                    lista.add(admin);
+                }
+            return lista;
+            }else{
+                return null;
+            }
+        } catch (SQLException e) {
+            return null;
+        }
+        
+    }
+    
+    public List<Administrador> Pesquisar_login_Administrador(String nome){
+        String sql = "SELECT  login, senha FROM cadastrar_administrador WHERE nome LIKE '" + nome + "%'";
+        List<Administrador> lista = new ArrayList<>();
+        
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs != null){
+                while(rs.next()){
+                    Administrador admin = null ;
+                    admin = new Administrador((Connection)admin);
+                   
+                    admin.setLogin(rs.getString(3));
+                    admin.setSenha(rs.getString(4));
+                    
+                    lista.add(admin);
+                }
+            return lista;
+            }else{
+                return null;
+            }
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+    
+    public List<Administrador> Pesquisar_Cod_Administrador(int cod){
+        String sql = "SELECT codigo, nome, login, senha FROM funcionario WHERE codigo = '" + cod + "'" ;
+        List<Administrador> lista = new ArrayList<>();
         
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -59,59 +114,6 @@ public class Administrador extends ExecutarSql{
             }else{
                 return null;
             }
-        } catch (Exception e) {
-            return null;
-        }
-        
-    }
-    
-    public List<Administrador> Pesquisar_Nome_Administrador(String nome){
-        String sql = "SELECT codigo, nome, login, senha FROM cadastrar_administrador WHERE nome LIKE '" + nome + "%'";
-        List<Administrador> lista = new ArrayList<Administrador>();
-        
-        try {
-            PreparedStatement ps = getCon().prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            
-            if(rs != null){
-                while(rs.next()){
-                    Administrador a = new Administrador((Connection) a);
-                   
-                    a.setLogin(rs.getString(3));
-                    a.setSenha(rs.getString(4));
-                    
-                    lista.add(a);
-                }
-            return lista;
-            }else{
-                return null;
-            }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public List<Administrador> Pesquisar_Cod_Administrador(int cod){
-        String sql = "SELECT codigo, nome, login, senha FROM funcionario WHERE codigo = '" + cod + "'" ;
-        List<Administrador> lista = new ArrayList<Administrador>();
-        
-        try {
-            PreparedStatement ps = getCon().prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            
-            if(rs != null){
-                while(rs.next()){
-                    Administrador admin = new Administrador();
-                    
-                    a.setLogin(rs.getString(3));
-                    a.setSenha(rs.getString(4));
-                    
-                    lista.add(admin);
-                }
-            return lista;
-            }else{
-                return null;
-            }
         } catch (Exception e){
             return null;
         }
@@ -121,7 +123,7 @@ public class Administrador extends ExecutarSql{
     
     public Administrador Consulta_Administrador(int cod){
         
-         Administrador f = new Administrador();
+         Administrador admin = new Administrador(admin);
         Administrador a = null;
          
         try {
@@ -139,7 +141,7 @@ public class Administrador extends ExecutarSql{
                     a.setSenha(rs.getString(2));
                 }
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.getMessage();
         }
         if(a.getCod() == cod){
@@ -159,9 +161,9 @@ public class Administrador extends ExecutarSql{
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
            
-            ps.setString(2, a.getLogin());
-            ps.setString(3, a.getSenha());
-            ps.setString(4, "" + a.getCod());
+            ps.setString(1, admin.getLogin());
+            ps.setString(2, admin.getSenha());
+          
             
             if(ps.executeUpdate() > 0){
                 JOptionPane.showMessageDialog(null,"Administrador Atualizado com Sucesso!");
@@ -182,9 +184,8 @@ public class Administrador extends ExecutarSql{
             
             if(rs != null){
                 while(rs.next()){
-                    Administrador a = new Administrador();
-                    a.setNome(rs.getString(1));
-                    lista.add(a);
+                    Administrador admin = new Administrador();
+                    lista.add(admin);
                 }
                 return lista;
             }else{

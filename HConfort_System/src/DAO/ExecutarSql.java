@@ -3,8 +3,16 @@ package DAO;
 
 import java.sql.Connection;
 
+<<<<<<< HEAD
 
 public class ExecutarSql {
+=======
+/**
+ *
+ * @author HConfort-System
+ */
+public final class ExecutarSql {
+>>>>>>> origin/master
     
     Connection con;
     

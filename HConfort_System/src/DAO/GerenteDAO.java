@@ -39,8 +39,8 @@ public class GerenteDAO extends ExecutarSql{
     }
     
     public List<Gerente> Listar_Gerente(){
-        String sql = "SELECT nome,email,cpf,login,senha FROM funcionario";
-        List<Funcionario> lista = new ArrayList<Funcionario>();
+        String sql = "SELECT nome,email,cpf,endereco,telefone,login,senha FROM gerente";
+        List<Gerente> lista = new ArrayList<Gerente>();
         
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -48,11 +48,14 @@ public class GerenteDAO extends ExecutarSql{
             
             if(rs != null){
                 while(rs.next()){
-                    Funcionario f = new Funcionario();
-                    f.setCod(rs.getInt(1));
-                    f.setNome(rs.getString(2));
-                    f.setLogin(rs.getString(3));
-                    f.setSenha(rs.getString(4));
+                    Gerente g = new Gerente();
+                    g.setNome(rs.getString(1));
+                    g.setEmail(rs.getString(2));
+                    g.setCpf(rs.getString(3));
+                    g.setEndereco(rs.getString(4));
+                    g.setTelefone(rs.getString(5));
+                   
+                    g.setSenha(rs.
                     
                     lista.add(f);
                 }

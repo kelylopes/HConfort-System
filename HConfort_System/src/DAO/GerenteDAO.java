@@ -19,17 +19,20 @@ public class GerenteDAO extends ExecutarSql{
       
     
     public String Inserir_Funcionario(Gerente g){
-        String sql = "INSERT INTO funcionario VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Gerente VALUES (?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
             ps.setString(1, g.getNome());
-            ps.setString(2, g.getLogin());
-            ps.setString(3, g.getSenha());
-            ps.setString(4,g.getEmail());
+            ps.setString(2, g.getEmail());
+            ps.setString(3, g.getCpf());
+            ps.setString(4, g.getEndereço());
+            ps.setString(5, g.getTelefone());
+            ps.setString(6,g.getLogin());
+            ps.setString(7,g.getSenha());
             
             if(ps.executeUpdate() > 0){
-                return "Funcionario Cadastrado com Sucesso!";
+                return "Gerente Cadastrado com Sucesso!";
             }else{
                 return "Erro ao Cadastrar Funcionario!";
             }
@@ -55,9 +58,8 @@ public class GerenteDAO extends ExecutarSql{
                     g.setEndereco(rs.getString(4));
                     g.setTelefone(rs.getString(5));
                    
-                    g.setSenha(rs.
-                    
-                    lista.add(f);
+                   
+                  
                 }
             return lista;
             }else{
@@ -69,9 +71,9 @@ public class GerenteDAO extends ExecutarSql{
         
     }
     
-    public List<Funcionario> Pesquisar_Nome_Funcionario(String nome){
+    public List<Gerente> Pesquisar_Nome_Funcionario(String nome){
         String sql = "SELECT codigo, nome, login, senha FROM funcionario WHERE nome LIKE '" + nome + "%'";
-        List<Funcionario> lista = new ArrayList<Funcionario>();
+        List<Gerente> lista = new ArrayList<Gerente>();
         
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -79,13 +81,17 @@ public class GerenteDAO extends ExecutarSql{
             
             if(rs != null){
                 while(rs.next()){
-                    Funcionario f = new Funcionario();
-                    f.setCod(rs.getInt(1));
-                    f.setNome(rs.getString(2));
-                    f.setLogin(rs.getString(3));
-                    f.setSenha(rs.getString(4));
+                    Gerente g = new Gerente();
+                   
+                    g.setNome(rs.getString(1));
+                    g.setEmail(rs.getString(2));
+                    g.setCpf(rs.getString(3));
+                    g.setEndereco(rs.getString(4));
+                    g.setTelefone(rs.getString(5));
+                    g.setLogin(rs.getString(6));
+                    g.setSenha(rs.getString(7));
                     
-                    lista.add(f);
+                    lista.add(g);
                 }
             return lista;
             }else{
@@ -96,9 +102,9 @@ public class GerenteDAO extends ExecutarSql{
         }
     }
     
-    public List<Funcionario> Pesquisar_Cod_Funcionario(int cod){
-        String sql = "SELECT codigo, nome, login, senha FROM funcionario WHERE codigo = '" + cod + "'" ;
-        List<Funcionario> lista = new ArrayList<Funcionario>();
+    public List<Gerente> Pesquisar_Cod_Funcionario(String nome){
+        String sql = "SELECT codigo, nome, login, senha FROM funcionario WHERE nome = '" + nome+ "'" ;
+        List<Gerente> lista = new ArrayList<Gerente>();
         
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -106,13 +112,17 @@ public class GerenteDAO extends ExecutarSql{
             
             if(rs != null){
                 while(rs.next()){
-                    Funcionario f = new Funcionario();
-                    f.setCod(rs.getInt(1));
-                    f.setNome(rs.getString(2));
-                    f.setLogin(rs.getString(3));
-                    f.setSenha(rs.getString(4));
+                    Gerente g = new Gerente();
+                    g.setNome(rs.getString(1));
+                    g.setEmail(rs.getString(2));
+                    g.setCpf(rs.getString(3));
+                    g.setEndereco(rs.getString(4));
+                    g.setTelefone(rs.getString(5));
+                    g.setLogin(rs.getString(6));
+                    g.setSenha(rs.getString(7));
                     
-                    lista.add(f);
+                    
+                    lista.add(g);
                 }
             return lista;
             }else{
@@ -125,13 +135,13 @@ public class GerenteDAO extends ExecutarSql{
     
 
     
-    public Funcionario Consulta_Funcionario(int cod){
+    public Gerente Consulta_Gerente(String nome){
         
-         Funcionario f = new Funcionario();
+         Gerente g = new Gerente();
          
         try {
             
-            String sql = "SELECT * FROM funcionario WHERE codigo =  " + cod + "";
+            String sql = "SELECT * FROM gerente WHERE nome =  " + nome + "";
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
            
@@ -139,58 +149,66 @@ public class GerenteDAO extends ExecutarSql{
             if(rs != null){
                 while(rs.next()){
                                       
-                    f.setCod(rs.getInt(1));
-                    f.setNome(rs.getString(2));
-                    f.setLogin(rs.getString(3));
-                    f.setSenha(rs.getString(4));
+                   
+                    g.setNome(rs.getString(1));
+                    g.setEmail(rs.getString(2));
+                    g.setCpf(rs.getString(3));
+                    g.setEndereco(rs.getString(4));
+                    g.setTelefone(rs.getString(5));
+                    g.setLogin(rs.getString(6));
+                    g.setSenha(rs.getString(7));
                 }
             }
         } catch (Exception e) {
             e.getMessage();
         }
-        if(f.getCod() == cod){
-            JOptionPane.showMessageDialog(null, "Funcionário encontrado com sucesso!");
+        if(g.getNome() == nome){
+            JOptionPane.showMessageDialog(null, "Gerente encontrado com sucesso!");
         }else{
-        JOptionPane.showMessageDialog(null, "Funcionário Não encontrado com sucesso!");    
+        JOptionPane.showMessageDialog(null, "Gerente Não encontrado com sucesso!");    
         }
-        return f;
+        return g;
     }
     
     
     
     
-    public void Alterar_Funcionario(Funcionario f){
-        String sql = "UPDATE funcionario SET nome = ?, login = ?, senha = ?"
-                + "WHERE codigo = ?";
+    public void Alterar_Funcionario(Gerente g){
+        String sql = "UPDATE gerente SET nome = ?, email = ?, cpf = ? , endereco = ?, telefone = ?, login = ?, senha = ?"
+                + "WHERE nome = ?";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setString(1, f.getNome());
-            ps.setString(2, f.getLogin());
-            ps.setString(3, f.getSenha());
-            ps.setString(4, "" + f.getCod());
+            ps.setString(1, g.getNome());
+            ps.setString(2,g.getEmail());
+            ps.setString(3, g.getCpf());
+            ps.setString(4, g.getEndereço());
+            ps.setString(5, g.getTelefone());
+            ps.setString(6, g.getLogin());
+            ps.setString(7, g.getSenha());
+            ps.setString(8, "" + g.getNome());
             
             if(ps.executeUpdate() > 0){
-                JOptionPane.showMessageDialog(null,"Funcionario Atualizado com Sucesso!");
+                JOptionPane.showMessageDialog(null,"Gerente Atualizado!");
             }else{
-                JOptionPane.showMessageDialog(null,"Erro ao Atualizar o Funcionário!");
+                JOptionPane.showMessageDialog(null,"Erro ao Atualizar o Gerente!");
             }
         } catch (Exception e) {
            e.getMessage();
         }
     }
     
-    public List<Funcionario> ListaComboFuncionario(){
+    public List<Gerente> ListaComboFuncionario(){
         String sql = "SELECT nome FROM funcionario ORDER BY nome";
-        List<Funcionario> lista = new ArrayList<Funcionario>();
+        List<Gerente> lista = new ArrayList<Gerente>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             if(rs != null){
                 while(rs.next()){
-                    Funcionario f = new Funcionario();
-                    f.setNome(rs.getString(1));
-                    lista.add(f);
+                    Gerente g = new Gerente();
+                    g.setNome(rs.getString(1));
+                    lista.add(g);
                 }
                 return lista;
             }else{
@@ -201,12 +219,12 @@ public class GerenteDAO extends ExecutarSql{
         }
     }
     
-    public String Excluir_Funcionario(Funcionario f){
+    public String Excluir_Gerente(Gerente g){
         String sql = "DELETE FROM funcionario WHERE codigo = ?";
     
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
-            ps.setInt(1, f.getCod());
+            ps.setString(1, g.getNome());
             
             if(ps.executeUpdate() > 0){
                 return "Funcionário Excluído com Sucesso!";

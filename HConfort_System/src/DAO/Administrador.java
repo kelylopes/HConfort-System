@@ -3,7 +3,7 @@ package DAO;
 
 
 import java.sql.Connection;
-<<<<<<< HEAD
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,20 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-;
-=======
 
 
->>>>>>> origin/master
+
 
 public class Administrador extends ExecutarSql{
 
     public Administrador(Connection con) {
-        super(con);
+        
     }
 
     
-<<<<<<< HEAD
+
     public String   Inserir_Administrador (Administrador admin){
         String sql = "INSERT INTO funcionario VALUES (?,?)";
         try {
@@ -218,22 +216,17 @@ public class Administrador extends ExecutarSql{
             return e.getMessage();
         }
     
-=======
-    /**
-     *
-     * @param a
-     * @return
-     */
+
     public String Inserir_Administrador (Administrador a){
         return null;
        
        
         
->>>>>>> origin/master
+
     }
     
 
-<<<<<<< HEAD
+
     private void setLogin(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -253,21 +246,8 @@ public class Administrador extends ExecutarSql{
     private String getSenha() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-=======
-    
-   
->>>>>>> origin/master
+
 }
 
     
-<<<<<<< HEAD
-    
-    
-    
-    
-=======
 
-
-
-
->>>>>>> origin/master

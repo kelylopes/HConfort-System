@@ -7,7 +7,7 @@ package view;
 
 import Connection.ConnectionFactory;
 import javax.swing.JOptionPane;
-import principal.Menu;
+
 
 
 
@@ -157,9 +157,10 @@ ConnectionFactory con  = new ConnectionFactory ();
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
         if (campoUsuario.getText().equals("admin")&& campoSenha.getPassword().equals("123")){ 
-        Menu menu = new Menu();
-        menu.setVisible(true);
-        dispose();
+            
+        CadastroGeral cad = new CadastroGeral();
+        cad.setVisible(true);
+      
         
        }else {
             

@@ -6,9 +6,6 @@
 package view;
 
 import principal.Login;
-import view.Ca_Admi;
-import view.ConsultaGeral;
-import view.Exc_Alt_Res;
 import view.TelaInicial;
 
 /**
@@ -186,21 +183,18 @@ public class CadastroGeral extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        Exc_Alt_Res ea = new Exc_Alt_Res();
-        ea.setVisible(true);
+       
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        ConsultaGeral consulta = new ConsultaGeral();
-        consulta.setVisible(true);
+        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-       Ca_Admi admin = new Ca_Admi();
-       admin.setVisible(true);
+     
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

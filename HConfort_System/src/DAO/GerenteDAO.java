@@ -18,7 +18,7 @@ public class GerenteDAO extends ExecutarSql{
     
       
     
-    public String Inserir_Funcionario(Gerente g){
+    public String cadastrarGerente(Gerente g){
         String sql = "INSERT INTO Gerente VALUES (?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -235,6 +235,10 @@ public class GerenteDAO extends ExecutarSql{
             return e.getMessage();
         }
     
+    }
+
+    public void cadastrarGerente(view.Gerente g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

@@ -5,18 +5,18 @@
  */
 package view;
 
-import Connection.ConnectionFactory;
+import Connection.Conexao;
 import javax.swing.JOptionPane;
 
 
 
 
 public class Login extends javax.swing.JFrame {
-ConnectionFactory con  = new ConnectionFactory ();
+Conexao con  = new Conexao();
     public Login() {
         initComponents();
         
-      ConnectionFactory.getConnection();
+      con.getConnection();
     }
 
     /**
@@ -156,7 +156,7 @@ ConnectionFactory con  = new ConnectionFactory ();
     }//GEN-LAST:event_campoUsuarioActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        if (campoUsuario.getText().equals("admin")&& campoSenha.getPassword().equals("123")){ 
+        if (campoUsuario.getText().equals("admin")&& campoSenha.getText().equals("123")){ 
             
         CadastroGeral cad = new CadastroGeral();
         cad.setVisible(true);

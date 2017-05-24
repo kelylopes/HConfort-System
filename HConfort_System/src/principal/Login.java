@@ -6,14 +6,14 @@
 package principal;
 
 import view.CadastroGeral;
-import Connection.ConnectionFactory;
+import Connection.Conexao;
 import javax.swing.JOptionPane;
 import DAO.ExecutarSql;
 
 
 
 public class Login extends javax.swing.JFrame {
-ConnectionFactory con  = new ConnectionFactory ();
+Conexao con  = new Conexao();
     public Login() {
         initComponents();
         

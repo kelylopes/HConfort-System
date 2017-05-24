@@ -19,7 +19,7 @@ public class GerenteDAO extends ExecutarSql{
       
     
     public String cadastrarGerente(Gerente g){
-        String sql = "INSERT INTO Gerente VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO gerente VALUES (?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
@@ -34,7 +34,7 @@ public class GerenteDAO extends ExecutarSql{
             if(ps.executeUpdate() > 0){
                 return "Gerente Cadastrado com Sucesso!";
             }else{
-                return "Erro ao Cadastrar Funcionario!";
+                return "Erro ao Cadastrar!";
             }
         } catch (Exception e) {
             return e.getMessage();
@@ -42,7 +42,7 @@ public class GerenteDAO extends ExecutarSql{
     }
     
     public List<Gerente> Listar_Gerente(){
-        String sql = "SELECT nome,email,cpf,endereco,telefone,login,senha FROM gerente";
+        String sql = "SELECT nome, email, CPF, endereco, telefone, login, senha FROM gerente";
         List<Gerente> lista = new ArrayList<Gerente>();
         
         try {

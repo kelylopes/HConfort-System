@@ -8,7 +8,7 @@ import java.sql.Connection;
 public class ExecutarSql {
 
     
-    Connection con;
+   private Connection con;
     
     public ExecutarSql(Connection con){
         setCon(con);

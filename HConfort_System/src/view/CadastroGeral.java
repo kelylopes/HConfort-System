@@ -8,10 +8,7 @@ package view;
 import principal.Login;
 import view.TelaInicial;
 
-/**
- *
- * @author Ana Kely Lopes
- */
+
 public class CadastroGeral extends javax.swing.JFrame {
 
     /**

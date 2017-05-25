@@ -11,8 +11,8 @@ public class Gerente {
     private String cpf;
     private String endereço;
     private String telefone;
-    String login;
-    String senha;
+    private String login;
+    private String senha;
 
     /**
      * @return the nome
@@ -26,6 +26,28 @@ public class Gerente {
      */
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     /**
@@ -84,24 +106,6 @@ public class Gerente {
         this.telefone = telefone;
     }
 
-    public String getLogin() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String getSenha() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setEndereco(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setLogin(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setSenha(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
 }

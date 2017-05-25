@@ -3,14 +3,15 @@ package view;
 
 import Connection.Conexao;
 import DAO.GerenteDAO;
+import hconfort_system.modelo.Gerente;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 
-public class Gerente extends javax.swing.JFrame {
+public class TelaGerente extends javax.swing.JFrame {
 
     
-    public Gerente() {
+    public TelaGerente() {
         initComponents();
     }
 
@@ -266,14 +267,14 @@ public class Gerente extends javax.swing.JFrame {
      
         String nome = Nome.getText();
         String email = jtEmail.getText();
-        String  cpf = CPF.getText();
+        String cpf = CPF.getText();
         String endereço = jtEndereço .getText();
         String telefone = jtTelefone .getText();
         String login = jtLogin.getText();
         String senha = jtSenha.getText();
         
           if(nome.equals("") || email.equals("") || cpf.equals("") || endereço.equals("") || telefone.equals("") || login.equals("") || senha.equals("")){
-            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!", "hconfortsystem", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!", "confort", JOptionPane.WARNING_MESSAGE);
         }else{
             Connection con = Conexao.AbrirConexao();
             GerenteDAO sql = new GerenteDAO(con);
@@ -304,8 +305,9 @@ public class Gerente extends javax.swing.JFrame {
             
             
             
-            JOptionPane.showMessageDialog(null, "Cadastro Realizado ","hconfortsystem", JOptionPane.INFORMATION_MESSAGE );
+            JOptionPane.showMessageDialog(null, "Cadastro Realizado ","confort", JOptionPane.INFORMATION_MESSAGE );
             dispose();
+            System.out.println(nome);
           }
           
      
@@ -332,20 +334,21 @@ public class Gerente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Gerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Gerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Gerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Gerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gerente().setVisible(true);
+                new TelaGerente().setVisible(true);
             }
         });
     }
@@ -375,31 +378,4 @@ public class Gerente extends javax.swing.JFrame {
     private javax.swing.JTextField jtTelefone;
     // End of variables declaration//GEN-END:variables
 
-    private void setNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setEmail(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setCpf(String cpf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setEndereço(String endereço) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setTelefone(String telefone) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setLogin(String login) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setSenha(String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

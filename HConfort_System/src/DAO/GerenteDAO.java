@@ -5,6 +5,7 @@ import hconfort_system.modelo.Gerente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -16,10 +17,32 @@ public class GerenteDAO extends ExecutarSql{
         super(con);
     }
     
+    public boolean Logar (String login, String senha){
+        
+        boolean finalResult = false; 
+        try {
+            String consulta = "select login, senha from gerente" + "where login = '" + login + "' and senha = '" + senha + "'";
+             PreparedStatement ps = getCon().prepareStatement(consulta);
+             ResultSet rs = ps.executeQuery();
+             
+             if (rs!= null)
+                 while (rs.next()){
+                     Gerente g = new Gerente();
+                     g.setLogin(rs.getString(1));
+                     g.setSenha(rs.getString(2));
+                     finalResult = true;
+                 }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        return finalResult;
+    }
+    
+    
       
     
     public String cadastrarGerente(Gerente g){
-        String sql = "INSERT INTO gerente VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO gerente VALUES (0,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
@@ -55,7 +78,7 @@ public class GerenteDAO extends ExecutarSql{
                     g.setNome(rs.getString(1));
                     g.setEmail(rs.getString(2));
                     g.setCpf(rs.getString(3));
-                    g.setEndereco(rs.getString(4));
+                    g.setEndereço(rs.getString(4));
                     g.setTelefone(rs.getString(5));
                    
                    
@@ -86,7 +109,7 @@ public class GerenteDAO extends ExecutarSql{
                     g.setNome(rs.getString(1));
                     g.setEmail(rs.getString(2));
                     g.setCpf(rs.getString(3));
-                    g.setEndereco(rs.getString(4));
+                    g.setEndereço(rs.getString(4));
                     g.setTelefone(rs.getString(5));
                     g.setLogin(rs.getString(6));
                     g.setSenha(rs.getString(7));
@@ -116,7 +139,7 @@ public class GerenteDAO extends ExecutarSql{
                     g.setNome(rs.getString(1));
                     g.setEmail(rs.getString(2));
                     g.setCpf(rs.getString(3));
-                    g.setEndereco(rs.getString(4));
+                    g.setEndereço(rs.getString(4));
                     g.setTelefone(rs.getString(5));
                     g.setLogin(rs.getString(6));
                     g.setSenha(rs.getString(7));
@@ -153,7 +176,7 @@ public class GerenteDAO extends ExecutarSql{
                     g.setNome(rs.getString(1));
                     g.setEmail(rs.getString(2));
                     g.setCpf(rs.getString(3));
-                    g.setEndereco(rs.getString(4));
+                    g.setEndereço(rs.getString(4));
                     g.setTelefone(rs.getString(5));
                     g.setLogin(rs.getString(6));
                     g.setSenha(rs.getString(7));
@@ -235,10 +258,6 @@ public class GerenteDAO extends ExecutarSql{
             return e.getMessage();
         }
     
-    }
-
-    public void cadastrarGerente(view.Gerente g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

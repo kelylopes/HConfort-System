@@ -9,13 +9,11 @@ public class Conexao {
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://127.0.0.1:3306/hconfortsystem";
-            String user = "admin";
-            String PASS = "root";
-            con = DriverManager.getConnection(url,"admin", "root");
+            String url = "jdbc:mysql://127.0.0.1:3306/confort";
+            con = DriverManager.getConnection(url,"root", "");
                    
         } catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco","hconfortsystem", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco","confort", JOptionPane.ERROR_MESSAGE );
         }
         return con;
     }
@@ -29,7 +27,4 @@ public class Conexao {
         
     }
 
-    public void getConnection() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

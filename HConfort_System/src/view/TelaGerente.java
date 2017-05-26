@@ -47,14 +47,14 @@ public class TelaGerente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
         jLabel1.setText("Cadastro de Gerente");
 
+        jLabel2.setBackground(new java.awt.Color(0, 204, 204));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
         jLabel2.setText("Nome");
 
         Nome.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,7 @@ public class TelaGerente extends javax.swing.JFrame {
         });
 
         JtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        JtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        JtEmail.setForeground(new java.awt.Color(0, 204, 204));
         JtEmail.setText("Email");
 
         jtEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -76,11 +76,11 @@ public class TelaGerente extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 204, 204));
         jLabel5.setText("CPF");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(0, 204, 204));
         jLabel7.setText("Endereço");
 
         jtEndereço.addActionListener(new java.awt.event.ActionListener() {
@@ -90,11 +90,11 @@ public class TelaGerente extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(0, 204, 204));
         jLabel8.setText("Telefone");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(0, 204, 204));
         jLabel9.setText("Login");
 
         jtLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +104,7 @@ public class TelaGerente extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setForeground(new java.awt.Color(0, 204, 204));
         jLabel10.setText("Senha");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

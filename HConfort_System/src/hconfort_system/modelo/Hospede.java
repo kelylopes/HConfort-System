@@ -11,10 +11,10 @@ public class Hospede {
     private String cpf;
     private String rg;
     private String endereço;
-    String telefone;
-    String horario;
-    String login;
-    String senha;
+    private String telefone;
+    private String horario;
+    private String login;
+    private String senha;
 
   
     public String getNome() {
@@ -70,5 +70,39 @@ public class Hospede {
         this.endereço = endereço;
     }
     
+    public String getTelefone() {
+        return telefone;
+    }
+
+   
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
     
+     public String getHorario() {
+        return horario;
+    }
+
+   
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+    
+     public String getLogin() {
+        return login;
+    }
+
+   
+    public void setLogin(String login) {
+        this.login = login;
+    }
+    
+     public String getSenha() {
+        return senha;
+    }
+
+   
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

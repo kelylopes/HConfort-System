@@ -130,17 +130,28 @@ public class Excluir_Hós extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+     
         String nome = jTextField2.getText();
         
         Connection con = Conexao.AbrirConexao();
-        
         HospedeDAO sql = new HospedeDAO(con);
         Hospede h = new Hospede();
-         if (nome.equals("")){
-             JOptionPane.showMessageDialog(null, "Hóspede excluido com sucesso!");
-                    
-         }
+        if (nome.equals("")){
+            JOptionPane.showMessageDialog(null, "Nenhum campo foi preenchido!", "confort", JOptionPane.QUESTION_MESSAGE);
+            
+        }else{
+          int b = JOptionPane.showConfirmDialog(null, "Deseja realmente Excluir?" + "\n (" + nome + " )" , "confort", JOptionPane.YES_NO_OPTION,
+                  JOptionPane.QUESTION_MESSAGE);
+          
+          if (b ==0){
+              h.setNome(nome);
+              sql.Excluir_Hospede(h);
+              Conexao.FecharConexao(con);
+              dispose();
+          }
+            
+        }
+        
         
         
         

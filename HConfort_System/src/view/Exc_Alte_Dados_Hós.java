@@ -111,9 +111,9 @@ public class Exc_Alte_Dados_Hós extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Alte_Hó TelaAlte = new Alte_Hó();
-        TelaAlte.setVisible(true);
+      AlterarHospede alt = new AlterarHospede();
+      alt.setVisible(true);
+           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

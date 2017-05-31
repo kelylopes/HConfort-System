@@ -243,6 +243,7 @@ public class CadastroHospede extends javax.swing.JFrame {
         String horario = campoHorario.getText();
         String login = campoLogin.getText();
         String senha = campoSenha.getText();
+      
         
           if(nome.equals("") || email.equals("") || cpf.equals("") || rg.equals("") || endereço.equals("")  || telefone.equals("")|| horario.equals("") || login.equals("") || senha.equals("")){
             JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!", "confort", JOptionPane.WARNING_MESSAGE);
@@ -275,14 +276,10 @@ public class CadastroHospede extends javax.swing.JFrame {
             campoHorario.setText("");
             campoLogin.setText("");
             campoSenha.setText("");
-            
-            
-            
-            
-            
+         
             JOptionPane.showMessageDialog(null, "Cadastro Realizado ","confort", JOptionPane.INFORMATION_MESSAGE );
             dispose();
-            System.out.println(nome);
+            
           }
           
         

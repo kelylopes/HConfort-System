@@ -15,6 +15,7 @@ public class Hospede {
     private String horario;
     private String login;
     private String senha;
+   
 
   
     public String getNome() {
@@ -105,4 +106,6 @@ public class Hospede {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
 }
+    

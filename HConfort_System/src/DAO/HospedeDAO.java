@@ -8,7 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.naming.spi.DirStateFactory;
 import javax.swing.JOptionPane;
+
 
 
 public class HospedeDAO extends ExecutarSql{
@@ -56,6 +58,7 @@ public class HospedeDAO extends ExecutarSql{
             ps.setString(8,h.getLogin());
             ps.setString(9,h.getSenha());
             
+            
             if(ps.executeUpdate() > 0){
                 return "Hospede Cadastrado com Sucesso!";
             }else{
@@ -83,6 +86,102 @@ public class HospedeDAO extends ExecutarSql{
         }
     
     }
+      public boolean Testar_Hospede ( int cod) throws SQLException{
+       boolean Resultado = false;
+       
+       try {
+           String sql = "select * from hospede where cpf= ?";
+            PreparedStatement ps = getCon().prepareStatement(sql);
+           ResultSet rs  = ps.executeQuery();
+                   
+            
+            if(rs != null){
+                while (rs.next());
+                Resultado = true;
+                
+            }
+        } catch (SQLException ex) {
+           ex.getMessage();
+        }
+       return Resultado;  
+      }  
+      
+      
+      
+       public List<Hospede> Listar_Hospede(){
+        String sql = "SELECT cpf FROM hospede";
+        List<Hospede> lista = new ArrayList<Hospede>();
+        
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs != null){
+                while(rs.next()){
+                    Hospede h = new Hospede();
+                    h.setCpf(rs.getString(sql));
+                    
+                    
+                    lista.add(h);
+                }
+            return lista;
+            }else{
+                return null;
+            }
+        } catch (Exception e) {
+            return null;
+        }
+        
+    }
+ 
+     public void Alterar_Hospede(Hospede h){
+        String sql = "UPDATE hospede SET nome = ?"
+                + "WHERE cpf = ?";
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ps.setString(1, h.getNome());
+            ps.setString(2, "" + h.getCpf());
+            
+            if(ps.executeUpdate() > 0){
+                JOptionPane.showMessageDialog(null,"Hóspede Atualizado com Sucesso!");
+            }else{
+                JOptionPane.showMessageDialog(null,"Erro ao Atualizar o Hóspede!");
+            }
+        } catch (Exception e) {
+           e.getMessage();
+        }
+    }
+     
+      public void Consulta_Hospede(String cpf){
+        
+         Hospede h = new Hospede();
+         
+        try {
+            
+            String sql = "SELECT * FROM hospede set cpf = ?";
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+           
+            
+            if(rs != null){
+                while(rs.next()){
+                                      
+                    h.setCpf(rs.getString(1));
+                    h.setNome(rs.getString(2));
+                   
+                }
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        if(h.getCpf() == cpf ){
+            JOptionPane.showMessageDialog(null, "Hóspede encontrado com sucesso!");
+        }else{
+        JOptionPane.showMessageDialog(null, "Hóspede Não encontrado com sucesso!");    
+        }
+        
+      }
+
     
 }
 
